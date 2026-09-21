@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { addItem } from '../cart/cartSlice';
+import { FavoriteButton } from '../favorites/FavoriteButton';
 import { fetchProducts, setSelectedCategory } from './productsSlice';
 
 export const ProductList: React.FC = () => {
@@ -95,21 +96,27 @@ export const ProductList: React.FC = () => {
                 <span style={{ fontSize: '16px', fontWeight: 800, color: '#0f172a' }}>${product.price}</span>
                 <span style={{ fontSize: '12px', color: '#f59e0b', marginLeft: '6px' }}>★ {product.rating}</span>
               </div>
-              <button
-                onClick={() => dispatch(addItem(product))}
-                style={{
-                  backgroundColor: '#4f46e5',
-                  color: '#ffffff',
-                  border: 'none',
-                  padding: '8px 14px',
-                  borderRadius: '8px',
-                  cursor: 'pointer',
-                  fontSize: '13px',
-                  fontWeight: 600,
-                }}
-              >
-                + Thêm
-              </button>
+
+              {/* Nhóm cụm nút hành động */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <button
+                  onClick={() => dispatch(addItem(product))}
+                  style={{
+                    backgroundColor: '#4f46e5',
+                    color: '#ffffff',
+                    border: 'none',
+                    padding: '8px 14px',
+                    borderRadius: '8px',
+                    cursor: 'pointer',
+                    fontSize: '13px',
+                    fontWeight: 600,
+                  }}
+                >
+                  + Thêm
+                </button>
+
+                <FavoriteButton product={product} />
+              </div>
             </div>
           </div>
         ))}

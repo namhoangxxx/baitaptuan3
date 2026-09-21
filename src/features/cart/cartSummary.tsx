@@ -19,7 +19,6 @@ export const CartSummary: React.FC = () => {
 
   return (
     <div style={{ flex: '1 1 380px', backgroundColor: '#ffffff', padding: '24px', borderRadius: '16px', border: '1px solid #e2e8f0', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)' }}>
-      {/* Title */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
         <h2 style={{ margin: 0, fontSize: '20px', color: '#0f172a', fontWeight: 700 }}>
           🛒 Giỏ Hàng ({totalQuantity})
@@ -34,7 +33,6 @@ export const CartSummary: React.FC = () => {
         )}
       </div>
 
-      {/* Danh sách món ăn/hàng hóa trong giỏ */}
       {items.length === 0 ? (
         <div style={{ textAlign: 'center', padding: '40px 0', color: '#94a3b8' }}>
           <div style={{ fontSize: '40px', marginBottom: '8px' }}>🛍️</div>
@@ -64,7 +62,6 @@ export const CartSummary: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Bộ tăng giảm số lượng */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <button
                     onClick={() => dispatch(updateQuantity({ id: item.id, quantity: item.quantity - 1 }))}
@@ -93,7 +90,6 @@ export const CartSummary: React.FC = () => {
             ))}
           </div>
 
-          {/* Ô nhập Mã giảm giá */}
           <form onSubmit={handleApplyPromo} style={{ display: 'flex', gap: '8px', marginBottom: '20px' }}>
             <input
               type="text"
@@ -110,7 +106,6 @@ export const CartSummary: React.FC = () => {
             </button>
           </form>
 
-          {/* Chi tiết hóa đơn */}
           <div style={{ borderTop: '2px dashed #e2e8f0', paddingTop: '16px', display: 'grid', gap: '8px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '14px', color: '#64748b' }}>
               <span>Tạm tính:</span>
